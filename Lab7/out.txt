@@ -1,0 +1,7 @@
+total 32
+-rwxr-xr-x. 1 dani dani    82 Oct 26 10:58 compile.sh
+-rw-r--r--. 1 dani dani     0 Oct 26 11:01 out.txt
+-rwxr-xr-x. 1 dani dani 12968 Oct 26 11:01 redirect
+-rw-r--r--. 1 dani dani   702 Oct 26 10:59 redirect.c
+-rw-r--r--. 1 dani dani   909 Oct 26 10:48 run.c
+-rw-r--r--. 1 dani dani   922 Oct 26 10:50 zombie.c
