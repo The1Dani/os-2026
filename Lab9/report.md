@@ -101,6 +101,7 @@ close(2)                                = 0
 It does 92 syscalls and writes to fd=1 which is stdout
 
 ```txt
+>$ strace -e trace=openat,write,read,close ./syscalls
 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
 close(3)                                = 0
 openat(AT_FDCWD, "/lib64/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
@@ -122,5 +123,16 @@ read got 14 bytes: hello, kernel
 The file descriptor 3 is returned because the file descriptors 0, 1 and 2 are special file descriptors which are stdin, stdout and stderr respectivly.
 
 
+Counting one kind of system call:
+
+```txt
+>$ strace -e trace=read ./syscalls
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\2408\0\0\0\0\0\0"..., 832) = 832
+open returned descriptor 3
+write sent 14 bytes
+read(3, "hello, kernel\n", 63)          = 14
+read got 14 bytes: hello, kernel
++++ exited with 0 +++
+```
 
 
